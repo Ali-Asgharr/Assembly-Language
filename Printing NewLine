@@ -1,0 +1,43 @@
+;Program to print output in new line. 
+.model small
+.stack 100h
+.data
+.code
+main proc
+      
+      mov ah,1    ;Command to take input
+      int 21h     
+      mov bl,al   ;Storing inputted value in bl
+      
+      mov ah,1
+      int 21h
+      mov bh,al
+      
+      mov dl,10   ;Command to print new line
+      mov ah,2
+      int 21h 
+      
+      mov dl,13   ;Command to Carriage Return/Meaning bringing back cursor to starting of line
+      mov ah,2
+      int 21h
+      
+      mov dl,bl   ;Printing our first character
+      mov ah,2
+      int 21h
+      
+      mov dl,10     ;------
+      mov ah,2      ;      
+      int 21h       ;      
+                          ;Again printing new line and cursor positioning
+      mov dl,13     ;      
+      mov ah,2      ;      
+      int 21h       ;------
+      
+      mov dl,bh    ;Printing our second character
+      mov ah,2
+      int 21h 
+      
+      mov ah,4ch
+      int 21h
+    
+    main endp
