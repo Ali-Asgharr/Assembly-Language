@@ -1,0 +1,16 @@
+;Program to Take Input and print Output.
+.model small
+.stack 100h
+.data
+.code
+main proc
+      mov ah,01h  ;Command to take input
+      int 21h     ;Interupt CPU commmand
+      
+      mov dl,al   ;Storing data in dl from al
+      mov ah,02h  ;Printing command 
+      int 21h
+      
+      mov ah,4ch  ; Command to come out of Registers.
+      int 21h
+    main endp
